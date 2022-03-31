@@ -1,0 +1,17 @@
+name: Release Pull Request Automation
+on:
+  release:
+    types: [published]
+    
+jobs:
+  release-automation:
+    runs-on: ubuntu-latest
+    steps:
+      # This is needed to make sure the created branch has a changeset. Otherwise the pull request
+      # will not be created.
+      - uses: actions/checkout@v2
+      - uses: gigitux/automations@trunk
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # This can be a comma delimited list of automations to run, in this case we're just executing release
+          automations: release
