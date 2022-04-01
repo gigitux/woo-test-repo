@@ -10,7 +10,7 @@ jobs:
       # This is needed to make sure the created branch has a changeset. Otherwise the pull request
       # will not be created.
       - uses: actions/checkout@v2
-      - uses: gigitux/automations@trunk
+      - uses: woocommerce/automations@try/add-changelog-automatically
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # This can be a comma delimited list of automations to run, in this case we're just executing release
